@@ -14,6 +14,8 @@ class Contact
 		std::string darkestSecret;
 
 	public :
+		void setContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkestSecret);
+
 		std::string getFirstName() const;
 		std::string getLastName() const;
 		std::string getNickname() const;
@@ -21,4 +23,4 @@ class Contact
 		std::string getDarkestSecret() const;
 };
 
-#endif CONTACT_HPP
+#endif

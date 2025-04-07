@@ -7,8 +7,11 @@ class PhoneBook
 {
     private :
         Contact contacts[8];
+        int nextIndex;
+        int contactCount;
+
     public :
-        add();
+        void addContact();
 
 };
 
