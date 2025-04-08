@@ -23,15 +23,18 @@ public:
 
 	typedef Account		t;
 
+	//getters(Accesseurs)
 	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
 
+	//constuctor/destructor
 	Account( int initial_deposit );
 	~Account( void );
 
+	//Public Interface Methods
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
 	int		checkAmount( void ) const;
@@ -45,7 +48,8 @@ private:
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
-	static void	_displayTimestamp( void );
+	//Utility Methods
+	static void	_displayTimestamp( void ); //private bc only called by member functions
 
 	int				_accountIndex;
 	int				_amount;
