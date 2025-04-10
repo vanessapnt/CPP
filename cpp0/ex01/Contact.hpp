@@ -1,6 +1,8 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+#include <iostream>
+
 //why std::string and not char * ? 
 //std::string automatically manages memory and the size of the string
 

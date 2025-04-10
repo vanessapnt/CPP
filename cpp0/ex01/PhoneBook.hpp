@@ -12,6 +12,7 @@ class PhoneBook
 
     public :
         void addContact();
+        void displayContacts();
 
 };
 

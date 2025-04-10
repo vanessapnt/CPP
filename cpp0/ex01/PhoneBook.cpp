@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <iomanip> //for setfill() and setw()
+#include <string> //for length()
 
 //std::cin >> variable;
 //reads only one word, stopping at the first space or tab
@@ -44,5 +46,52 @@ void PhoneBook::addContact()
 
 void PhoneBook::displayContacts()
 {
-	
+	if (this->contactCount == 0)
+    {
+        std::cout << "No contacts to display!" << std::endl;
+        return;
+    }
+	//Header
+    std::cout << std::setw(10) << "index" << "|";
+    std::cout << std::setw(10) << "first name" << "|";
+    std::cout << std::setw(10) << "last name" << "|";
+    std::cout << std::setw(10) << "nickname" << "|" << std::endl;
+
+	int i = 0;
+    while (i < this->contactCount)
+    {
+		//Index
+        std::cout << std::setw(10) << i << "|";
+        
+        //First Name
+        std::string firstName = this->contacts[i].getFirstName();
+        if (firstName.length() > 10)
+            std::cout << firstName.substr(0, 9) << ".|";
+        else
+            std::cout << std::setw(10) << firstName << "|";
+        
+        //Last Name
+        std::string lastName = this->contacts[i].getLastName();
+        if (lastName.length() > 10)
+            std::cout << lastName.substr(0, 9) << ".|";
+        else
+            std::cout << std::setw(10) << lastName << "|";
+        
+        //Nickname
+        std::string nickname = this->contacts[i].getNickname();
+        if (nickname.length() > 10)
+            std::cout << nickname.substr(0, 9) << ".|";
+        else
+            std::cout << std::setw(10) << nickname << "|";
+        
+        std::cout << std::endl;
+        i++;
+    }
+	//Search by index
+	std::string input;
+	std::cout << "\nEnter index of the contact to display: ";
+
 }
+
+//substr(starting position, lenght) : allows you to extract a substring (a portion) from a string
+//setw(n) : sets the width of the next output field
