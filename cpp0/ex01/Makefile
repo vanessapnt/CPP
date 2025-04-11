@@ -1,7 +1,7 @@
-NAME = dreamjob
-SRCS = Account.cpp
+NAME = phonebook
+SRCS = PhoneBook.cpp Contact.cpp
 OBJS = $(SRCS:.cpp=.o)
-INCL =  Account.hpp
+INCL = PhoneBook.hpp Contact.hpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

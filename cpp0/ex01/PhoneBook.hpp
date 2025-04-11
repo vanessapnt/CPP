@@ -5,14 +5,14 @@
 
 class PhoneBook
 {
-    private :
-        Contact contacts[8];
-        int nextIndex;
-        int contactCount;
+	private :
+		Contact contacts[8];
+		int nextIndex;
+		int contactCount;
 
-    public :
-        void addContact();
-        void displayContacts();
+	public :
+		void addContact();
+		void displayContacts();
 
 };
 
