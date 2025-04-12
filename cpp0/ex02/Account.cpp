@@ -84,7 +84,7 @@ void	Account::makeDeposit( int deposit )
 {
 	this->_amount += deposit; 
 	Account::_totalAmount += deposit; //static
-	this->_totalNbDeposits++;
+	this->_nbDeposits++;
 	Account::_totalNbDeposits++; //static
 }
 

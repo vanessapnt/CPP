@@ -124,25 +124,23 @@ void PhoneBook::displayContacts()
 
 int main(void)
 {
-    PhoneBook phoneBook;
-    std::string input;
+	PhoneBook phoneBook;
+	std::string input;
 
-    while (true)
-    {
-        std::cout << "\nEnter a input (ADD, SEARCH, EXIT): ";
-        std::getline(std::cin, input);
+	while (true)
+	{
+		std::cout << "\nEnter a input (ADD, SEARCH, EXIT): ";
+		if (!std::getline(std::cin, input)) //EOF or error
+			break;
 
-        if (input == "EXIT")
-            break;
-        else if (input == "ADD")
-            phoneBook.addContact();
-        else if (input == "SEARCH")
-            phoneBook.displayContacts();
-        else
-            std::cout << "Invalid command. Please use ADD, SEARCH or EXIT" << std::endl;
-
-        if (std::cin.eof())  // Handle Ctrl+D
-            break;
-    }
-    return (0);
+		if (input == "EXIT")
+			break;
+		else if (input == "ADD")
+			phoneBook.addContact();
+		else if (input == "SEARCH")
+			phoneBook.displayContacts();
+		else
+			std::cout << "Invalid command. Please use ADD, SEARCH or EXIT" << std::endl;
+	}
+	return (0);
 }
