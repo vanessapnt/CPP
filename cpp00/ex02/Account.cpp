@@ -21,12 +21,18 @@ Account::Account(int initial_deposit)
 		this->_nbWithdrawals = 0;
 		Account::_nbAccounts++;
 		Account::_totalAmount += initial_deposit;
+		_displayTimestamp();
+		std::cout << "index:" << this->_accountIndex << ";amount:" 
+				  << this->_amount << ";created" << std::endl;
 }
 
 Account::~Account(void)
 {
-		Account::_nbAccounts--;
-		Account::_totalAmount -= this->_amount;
+	_displayTimestamp();
+    std::cout << "index:" << this->_accountIndex << ";amount:" 
+              << this->_amount << ";closed" << std::endl;
+	Account::_nbAccounts--;
+	Account::_totalAmount -= this->_amount;
 }
 
 int	Account::getNbAccounts( void )
@@ -81,7 +87,13 @@ void    Account::displayAccountsInfos(void)
 //acc.checkAmount();             // Use . for object methods
 
 void	Account::makeDeposit( int deposit )
-{
+{    
+	_displayTimestamp();
+    std::cout << "index:" << this->_accountIndex 
+              << ";p_amount:" << this->_amount 
+              << ";deposit:" << deposit 
+              << ";amount:" << (this->_amount + deposit)
+              << ";nb_deposits:" << (this->_nbDeposits + 1) << std::endl;
 	this->_amount += deposit; 
 	Account::_totalAmount += deposit; //static
 	this->_nbDeposits++;
@@ -111,6 +123,19 @@ int		Account::checkAmount( void ) const
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
+	_displayTimestamp();
+    std::cout << "index:" << this->_accountIndex 
+              << ";p_amount:" << this->_amount;
+    
+    if (this->_amount < withdrawal) {
+        std::cout << ";withdrawal:refused" << std::endl;
+        return false;
+    }
+    
+    std::cout << ";withdrawal:" << withdrawal 
+              << ";amount:" << (this->_amount - withdrawal)
+              << ";nb_withdrawals:" << (this->_nbWithdrawals + 1) << std::endl;
+
 	if (this->_amount < withdrawal)
 		return false;
 	this->_amount -= withdrawal;
@@ -122,7 +147,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 void	Account::_displayTimestamp(void)
 {
-		std::time_t result = std::time(nullptr); //time spent since 01/01/1970 00:00:00 UTC //format : 1712594378
+		std::time_t result = std::time(NULL); //time spent since 01/01/1970 00:00:00 UTC //format : 1712594378
 		std::tm* timeinfo = std::localtime(&result); //to tm structure
 		
 		std::cout << "[";
