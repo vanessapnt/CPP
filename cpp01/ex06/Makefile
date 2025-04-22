@@ -1,6 +1,7 @@
-NAME = this_is_brain
+NAME = harlFilter
 
-SRCS = main.cpp
+SRCS = Harl.cpp \
+		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

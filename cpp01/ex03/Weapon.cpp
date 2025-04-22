@@ -11,7 +11,8 @@ const std::string& Weapon::getType() const
     return this->type;
 }
 
-void setType(std::string input_type) //modifies the type
+void Weapon::setType(const std::string& input_type) //modifies the type
 {
     this->type = input_type;
 }
+

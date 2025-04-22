@@ -2,6 +2,7 @@
 #define WEAPON_HPP
 
 #include <string>
+#include <iostream>
 
 /*
 Use const std::string& for constructor parameters when:
@@ -19,8 +20,8 @@ class Weapon
         Weapon(const std::string& input_type);
         ~Weapon(); //destructor
 
-        const std::string& getType();
-        void setType(std::string& input_type); //ref because type is not going to be modified
+        const std::string& getType() const;
+        void setType(const std::string& input_type); //ref because type is not going to be modified
 };
 
 #endif

@@ -1,11 +1,14 @@
 #include "HumanA.hpp"
 #include "Weapon.hpp"
 
-
-//HumanA must always have a weapon → Reference (&) enforces this constraint at compile time
-//HumanB might not have a weapon → Pointer (*) allows nullptr
-
-Weapon::attack();
+// Constructor with initialization list
+HumanA::HumanA(std::string name, Weapon& weapon) : weapon(weapon), name(name)
 {
-    std::cout << this->name << " attacks with their " << this->type << std::endl;
+}
+
+HumanA::~HumanA() {}
+
+void HumanA::attack()
+{
+    std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
 }

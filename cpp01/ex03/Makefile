@@ -1,6 +1,9 @@
-NAME = this_is_brain
+NAME = violence
 
-SRCS = main.cpp
+SRCS = HumanA.cpp \
+	HumanB.cpp \
+	main.cpp \
+	Weapon.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

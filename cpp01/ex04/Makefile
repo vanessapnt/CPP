@@ -1,4 +1,4 @@
-NAME = this_is_brain
+NAME = sed
 
 SRCS = main.cpp
 
@@ -14,6 +14,7 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f $(OBJS)
+	rm -f test.replace
 
 fclean: clean
 	rm -f $(NAME)
