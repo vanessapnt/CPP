@@ -11,7 +11,7 @@ class Zombie
 		Zombie(std::string name); //constructor
 		~Zombie(void); //destructor
 
-		void announce(void);
+		void announce(void) const;
 };
 
 Zombie* newZombie(std::string name);

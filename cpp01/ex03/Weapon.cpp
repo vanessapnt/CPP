@@ -15,4 +15,3 @@ void Weapon::setType(const std::string& input_type) //modifies the type
 {
     this->type = input_type;
 }
-

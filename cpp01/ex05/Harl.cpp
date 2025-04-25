@@ -49,5 +49,5 @@ void Harl::complain( std::string level)
         }
         i++;
     }
-    std::cout << "Invalid Command: " << level << std::endl;
+    std::cerr << "Invalid Command: " << level << std::endl;
 }

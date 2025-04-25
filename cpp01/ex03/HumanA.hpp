@@ -15,4 +15,6 @@ class HumanA
         void attack();
 };
 
+//we cannot modify the object (a weapon) but we can modify the object's type with setType()
+
 #endif
