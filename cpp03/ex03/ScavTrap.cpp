@@ -1,0 +1,70 @@
+#include "ScavTrap.hpp"
+
+// The base class ClapTrap must be constructed first via initialization list
+// Then we can modify its protected members in the derived class constructor body
+ScavTrap::ScavTrap() : ClapTrap()
+{
+	this->HitPoints = 100;
+	this->EnergyPoints = 50;
+	this->AttackDamage = 20;
+	std::cout << "ScavTrap default constructor called" << std::endl;
+}
+
+// All members are inherited from ClapTrap, so the base class copy constructor handles everything
+// No ScavTrap-specific members to copy
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+{
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+{
+	this->HitPoints = 100;
+	this->EnergyPoints = 50;
+	this->AttackDamage = 20;
+	std::cout << "ScavTrap named constructor called for " << this->getName() << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
+	if (this != &other)
+	{
+		ClapTrap::operator=(other);
+		
+		// If ScavTrap had any specific members, we would handle them here
+	}
+	return *this;
+}
+
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap destructor called" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (this->EnergyPoints <= 0)
+	{
+		std::cout << "ScavTrap " << this->getName() << " has no energy points left to attack!" << std::endl;
+		return;
+	}
+	if (this->HitPoints <= 0)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is dead and cannot attack!" << std::endl;
+		return;
+	}
+	this->EnergyPoints--;
+	std::cout << "ScavTrap " << this->Name << " attacks " << target 
+			  << ", causing " << this->AttackDamage << " points of damage!" << std::endl;
+}
+
+void ScavTrap::guardGate()
+{
+	if (this->HitPoints <= 0)
+	{
+		std::cout << "ScavTrap " << this->getName() << " is dead and cannot guard gate!" << std::endl;
+		return;
+	}
+	std::cout << "ScavTrap " << this->getName() << " is now in Gate keeper mode" << std::endl;
+}
