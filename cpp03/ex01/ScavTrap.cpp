@@ -39,23 +39,23 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << "ScavTrap " << Name << " destructor called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
 	if (this->EnergyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << this->getName() << " has no energy points left to attack!" << std::endl;
+		std::cout << this->getName() << " has no energy points left to attack!" << std::endl;
 		return;
 	}
 	if (this->HitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << this->getName() << " is dead and cannot attack!" << std::endl;
+		std::cout << this->getName() << " is dead and cannot attack!" << std::endl;
 		return;
 	}
 	this->EnergyPoints--;
-	std::cout << "ScavTrap " << this->getName() << " attacks " << target 
+	std::cout << this->getName() << " attacks " << target 
 			  << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 }
 
@@ -63,8 +63,8 @@ void ScavTrap::guardGate()
 {
 	if (this->HitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << this->getName() << " is dead and cannot guard gate!" << std::endl;
+		std::cout << this->getName() << " is dead and cannot guard gate!" << std::endl;
 		return;
 	}
-	std::cout << "ScavTrap " << this->getName() << " is now in Gate keeper mode" << std::endl;
+	std::cout << this->getName() << " is now in Gate keeper mode" << std::endl;
 }

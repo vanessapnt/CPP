@@ -39,15 +39,15 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor called" << std::endl;
+	std::cout << "FragTrap " << Name << " destructor called" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)
 {
     if (this->HitPoints <= 0)
     {
-        std::cout << "FragTrap " << this->getName() << " is dead and cannot request high fives!" << std::endl;
+        std::cout << this->getName() << " is dead and cannot request high fives!" << std::endl;
         return;
     }
-    std::cout << "FragTrap " << this->getName() << " enthusiastically requests high fives from everyone!" << std::endl;
+    std::cout << this->getName() << " enthusiastically requests high fives from everyone!" << std::endl;
 }
